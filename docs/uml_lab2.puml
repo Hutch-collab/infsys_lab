@@ -1,0 +1,18 @@
+@startuml TaskFlow_Efremov_Lab2
+interface ITaskRepository
+interface IPriorityStrategy
+class TaskService
+class InMemoryTaskRepository
+class SQLiteTaskRepository
+class WorkQueueStrategy
+class AuditTrail
+class make_repository <<factory>>
+TaskService --> ITaskRepository
+TaskService --> IPriorityStrategy
+TaskService ..> AuditTrail : Observer
+InMemoryTaskRepository ..|> ITaskRepository
+SQLiteTaskRepository ..|> ITaskRepository
+WorkQueueStrategy ..|> IPriorityStrategy
+make_repository ..> InMemoryTaskRepository
+make_repository ..> SQLiteTaskRepository
+@enduml

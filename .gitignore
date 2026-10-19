@@ -1,0 +1,9 @@
+build/
+build-*/
+artifacts/
+dist/
+*.db
+*.tar.gz
+.idea/
+.vscode/
+README.md
